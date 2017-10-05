@@ -71,6 +71,8 @@ def goal_callback(msg):
     path.header.frame_id = FRAME_ID
     path_pub.publish(path)
 
+    del path.poses[:]
+
 rospy.init_node('path_maker')
 
 rospy.Subscriber('clicked_point', PointStamped, point_callback)
